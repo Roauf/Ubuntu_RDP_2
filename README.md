@@ -1,5 +1,5 @@
 # About
-This is a github action to run ubuntu vps through Chrome Remote Desktop.
+This is a github action to get a ubuntu virtual machine through Chrome Remote Desktop.
 
 # Disclaimer
 I am not responsible if you're account is banned. 
@@ -30,7 +30,7 @@ Variables Name | Uses | Notes
 * Click `Run Workflow` button on the left of `This workflow has a workflow_dispatch event trigger` line.
 * Wait until a few minutes.
 * Go to `https://dashboard.ngrok.com/endpoints/status` and check if theres a one online tunnel running.
-* Go to `http://remotedesktop.google.com/headless` and you can see the machine login using `PIN CODE`.
+* Go to `http://remotedesktop.google.com/headless` and you can see the machine in the list then login using `PIN CODE`.
 * Copy the IP and connect through any software that supports SSH sonnection.
 * Fill in those login info, within username from `USERNAME`and password from `USER PASSWORD` you typed.
 
