@@ -9,6 +9,7 @@ on:
         required: true
       pincode:
         description: 'Enter a Pin (more or equal to 6 digits)'
+        default: '123456'
         required: true
       authtoken:
         description: 'NGROK AUTH TOKEN'
@@ -68,11 +69,6 @@ jobs:
 
     - name: Installing Xbase Clients
       run: sudo apt-get install xbase-clients python3-psutil xvfb -y
-
-    - name: Installing Chrome
-      run: |
-           wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
-           sudo apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb
 
     - name: Setting up Environment
       run: |
