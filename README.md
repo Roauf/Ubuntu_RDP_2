@@ -25,9 +25,9 @@ Variables Name | Uses | Notes
 ***
 
 * Fork this project.
-* Fill the gaps.
 * Go to `Actions` Tab and select one of system workflow.
-* Click `Run Workflow` button on the left of `This workflow has a workflow_dispatch event trigger` line.
+* Fill the gaps.
+* Click `Run Workflow` button.
 * Wait until a few minutes.
 * Go to `https://dashboard.ngrok.com/endpoints/status` and check if theres a one online tunnel running.
 * Go to `http://remotedesktop.google.com/headless` and you can see the machine in the list then login using `PIN CODE`.
