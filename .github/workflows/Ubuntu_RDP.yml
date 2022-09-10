@@ -49,7 +49,9 @@ jobs:
         echo Password="$_Pass" >> $GITHUB_ENV
 
     - name: Initializing Installation
-      run: sudo apt update && apt upgrade
+      run: |
+           sudo apt update 
+           sudo apt upgrade
 
     - name: Installing Chrome Remote Desktop
       run: |
