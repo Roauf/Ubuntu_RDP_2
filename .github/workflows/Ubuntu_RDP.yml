@@ -1,14 +1,15 @@
-name: Ubuntu SSH
+name: Ubuntu RDP
 
 on: 
   workflow_dispatch:
+  
     inputs:
       authcode:
-        description:
-        required:
+        description: 'Visit http://remotedesktop.google.com/headless and copy the command after Authentication'
+        required: true
       pincode:
-        description:
-        required:
+        description: 'Enter a Pin (more or equal to 6 digits)'
+        required: true
       authtoken:
         description: 'NGROK AUTH TOKEN'
         required: true
@@ -69,7 +70,7 @@ jobs:
            sudo dpkg --install chrome-remote-desktop_current_amd64.deb
            sudo apt install --assume-yes --fix-broken
 
-    - name: Setup Environment
+    - name: Settingup Environment
       run: |
            bash Setup.sh "${{ env.NGROK_TOKEN }}" "${{ env.ComputerName }}" "${{ github.event.inputs.username }}" "${{ env.Password }}"
     
