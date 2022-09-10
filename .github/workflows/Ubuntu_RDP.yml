@@ -76,8 +76,11 @@ jobs:
       run: |
            bash Setup.sh "${{ env.NGROK_TOKEN }}" "${{ env.ComputerName }}" "${{ github.event.inputs.username }}" "${{ env.Password }}"
     
-    - name: IP for Connect to your SSH
+    - name: IP for Connecting to SSH
       run: bash Ip.sh "${{ github.event.inputs.username }}"
+    
+    - name: Start Chrome Remote Desktop
+      run: ${{ github.event.inputs.authcode }} -pin=${{ github.event.inputs.pincode }}
 
     - name: Keep Alive
       run: ping 127.0.0.1 > null
