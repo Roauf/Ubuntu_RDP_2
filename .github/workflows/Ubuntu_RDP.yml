@@ -48,29 +48,31 @@ jobs:
         echo ComputerName="$_CName" >> $GITHUB_ENV
         echo Password="$_Pass" >> $GITHUB_ENV
 
-    - name: Installing Desktop Environment (wait for 10 min)
-      run: sudo apt update && sudo apt install ubuntu-desktop
+    - name: Initializing Installation
+      run: sudo apt update && apt upgrade
 
-    - name: Installing Google Chrome Headless
+    - name: Installing Chrome Remote Desktop
       run: |
-           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-           sudo dpkg --install google-chrome-stable_current_amd64.deb
-           sudo apt install --assume-yes --fix-broken
+           wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+           sudo apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb
+
+    - name: Installing Ubuntu Desktop Environment (wait for 10 min)
+      run: sudo apt install ubuntu-desktop
 
     - name: Installing Some Configurations
       run: |
            sudo apt install nautilus expect nano -y
            sudo apt install --assume-yes xscreensaver
 
-    - name: Installing Chrome Remote Desktop
-      run: |
-           sudo apt-get update
-           sudo apt-get install xbase-clients python3-psutil -y
-           wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
-           sudo dpkg --install chrome-remote-desktop_current_amd64.deb
-           sudo apt install --assume-yes --fix-broken
+    - name: Installing Xbase Clients
+      run: sudo apt-get install xbase-clients python3-psutil xvfb -y
 
-    - name: Settingup Environment
+    - name: Installing Chrome
+      run: |
+           wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+           sudo apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb
+
+    - name: Setting up Environment
       run: |
            bash Setup.sh "${{ env.NGROK_TOKEN }}" "${{ env.ComputerName }}" "${{ github.event.inputs.username }}" "${{ env.Password }}"
     
