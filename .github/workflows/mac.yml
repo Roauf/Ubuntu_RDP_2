@@ -34,7 +34,7 @@ jobs:
         # You can find this token here: https://dashboard.ngrok.com/auth/your-authtoken
         NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
         # ngrok server region [us, eu, au, ap, sa, jp, in] (optional, default: us)
-        NGROK_REGION: us
+        NGROK_REGION: ap
         # This password you will use when authorizing via SSH
         SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
         # Send connection info to Telegram (optional)
